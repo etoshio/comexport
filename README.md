@@ -1,4 +1,5 @@
 # comexport
 Comexport
 
-API em Spring Boot / Hibernate / RESTFul
+API em Spring Boot / Hibernate / RESTFul 
+Database MySQL
