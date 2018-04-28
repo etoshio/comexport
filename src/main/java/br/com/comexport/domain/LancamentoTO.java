@@ -3,10 +3,10 @@ package br.com.comexport.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class LancamentoTO implements Serializable {
 
@@ -16,8 +16,7 @@ public class LancamentoTO implements Serializable {
 	private Integer contaContabil;
 	
 	@NotNull(message="Data Obrigatório")
-	@JsonFormat(pattern="yyyyMMdd")
-	private Date data;
+	private Date date;
 	
 	@NotNull(message="Valor Obrigatório")
 	private BigDecimal valor;
@@ -29,10 +28,18 @@ public class LancamentoTO implements Serializable {
 		this.contaContabil = contaContabil;
 	}
 	public Date getData() {
-		return data;
+		return date;
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(String data) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd"); 
+		Date date;
+		try {
+			date = format.parse(data);
+			this.date = date;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public BigDecimal getValor() {
 		return valor;
