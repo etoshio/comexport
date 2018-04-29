@@ -2,14 +2,14 @@ package br.com.comexport.exception;
 
 public class CustomException {
 	 
-    private String errorMessage;
+    private String defaultMessage;
  
-    public CustomException(String errorMessage){
-        this.errorMessage = errorMessage;
+    public CustomException(String defaultMessage){
+        this.defaultMessage = defaultMessage;
     }
  
-    public String getErrorMessage() {
-        return errorMessage;
+    public String getDefaultMessage() {
+        return defaultMessage;
     }
  
 }

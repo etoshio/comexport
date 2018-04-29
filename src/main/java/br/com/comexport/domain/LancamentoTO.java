@@ -2,23 +2,26 @@ package br.com.comexport.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class LancamentoTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@NotNull(message="Conta Contábil Obrigatório")
+	@NotNull(message="Preencha o campo conta contábil")
 	private Integer contaContabil;
 	
-	@NotNull(message="Data Obrigatório")
+	@NotNull(message="Preencha o campo data")
+	@DateTimeFormat(pattern="yyyyMMdd")
 	private Date date;
 	
-	@NotNull(message="Valor Obrigatório")
+	@NotNull(message="Preencha o campo valor")
 	private BigDecimal valor;
 	
 	public Integer getContaContabil() {
